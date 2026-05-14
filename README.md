@@ -1,22 +1,95 @@
-# Project Title: Chicago Crime Data Analysis
+# Chicago Crime Data Analysis (2001–Present)
 
-This repository contains an exploratory data analysis (EDA) of crime incident data from Chicago, spanning from 2001 to the present. The project uses Python, pandas, and matplotlib to clean the raw data, analyze trends, and visualize key findings.
+An exploratory data analysis (EDA) of **7+ million reported crime incidents** in Chicago, spanning over two decades. This project ingests, cleans, and analyzes a public dataset from the City of Chicago to uncover crime patterns, arrest rate disparities, and long-term trends.
 
-### Project Objective
+## Project Overview
 
-The main goal of this analysis is to uncover significant patterns and trends within the Chicago crime dataset. The project answers key questions, such as:
+The goal of this analysis is to answer key questions about crime in Chicago using data-driven insights:
 
-* What are the most common types of crimes?
-* How have crime rates changed over time?
-* How do the number of homicides with an arrest compare to the total number of homicide incidents?
-* How does the arrest rate vary between different types of crimes, such as robbery and narcotics offenses?
+- **What are the most common crime types?**
+- **How have crime rates changed over time?**
+- **How do arrest rates vary across different crime categories?**
+- **What proportion of homicides result in an arrest?**
 
-### Dataset
+All analysis is performed in a single Jupyter Notebook using **Pandas** for data manipulation and **Matplotlib** for visualization.
 
-The analysis is based on the "Crimes - 2001 to Present" dataset, which is a public dataset provided by the City of Chicago. Due to its large size, the dataset is managed using Git Large File Storage (Git LFS).
+## Dataset
 
-### Repository Contents
+- **Source**: [Crimes – 2001 to Present](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2) (City of Chicago Data Portal)
+- **Size**: ~7 million records
+- **Fields**: ID, Case Number, Date, Block, IUCR Code, Primary Type, Description, Arrest (Boolean), Domestic, Beat, District, FBI Code, Year, Location, Updated On
 
-* `crime.ipynb`: The main Jupyter Notebook containing all the code for data cleaning, analysis, and visualization.
-* `Crimes_-_2001_to_Present.csv`: The raw dataset used for the analysis.
-* `homicide_arrest_chart.png`: A saved visualization comparing homicide incidents to the number of arrests.
+The raw CSV is managed via Git LFS due to its size.
+
+## Key Findings
+
+### Top 5 Most Common Crime Types
+| Crime Type | Incidents |
+|---|---|
+| THEFT | 1,782,119 |
+| BATTERY | 1,529,944 |
+| CRIMINAL DAMAGE | 954,832 |
+| NARCOTICS | 762,975 |
+| ASSAULT | 561,787 |
+
+### Arrest Rate Disparity
+Arrest rates vary dramatically by crime type:
+
+- **NARCOTICS**: ~99.3% arrest rate
+- **ROBBERY**: ~9.2% arrest rate
+
+### Homicide Incidents vs. Arrests
+Of all homicide incidents, approximately **47.96%** resulted in an arrest.
+
+![Homicide Incidents vs. Arrests](homicide_arrest_chart.png)
+
+## Tech Stack
+
+- **Python 3** – Core programming language
+- **Pandas** – Data ingestion, cleaning, grouping, and aggregation
+- **Matplotlib** – Bar charts and visualizations
+- **Jupyter Notebook** – Interactive analysis environment
+- **Git LFS** – Version control for large dataset
+
+## Repository Contents
+
+| File | Description |
+|---|---|
+| `crime.ipynb` | Complete EDA notebook with cleaning, analysis, and visualizations |
+| `homicide_arrest_chart.png` | Bar chart comparing total homicides vs. homicides with arrests |
+| `README.md` | Project documentation (this file) |
+| `.gitattributes` | Git LFS configuration for the raw CSV |
+
+## How to Run
+
+### Prerequisites
+- Python 3.8+
+- [Jupyter Notebook](https://jupyter.org/install) or JupyterLab
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/trayp20/Chicago-Crime.git
+cd Chicago-Crime
+
+# (Optional) Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install pandas matplotlib jupyter
+
+# Launch the notebook
+jupyter notebook crime.ipynb
+```
+
+> **Note**: The raw dataset is managed with Git LFS. To download it, run `git lfs pull` after cloning if you don't already have the file.
+
+## Author
+
+**Tray Pendleton** – [GitHub](https://github.com/trayp20)
+
+---
+
+*Data sourced from the City of Chicago Data Portal. This is an educational EDA project, not an official crime analysis.*
